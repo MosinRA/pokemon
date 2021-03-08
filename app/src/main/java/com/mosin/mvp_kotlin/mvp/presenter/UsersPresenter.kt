@@ -33,7 +33,8 @@ class UsersPresenter(val usersRepo: GitHubUsersRepo, val router: Router) :
         loadData()
 
         usersListPresenter.itemClickListener = { view ->
-            router.navigateTo(AndroidScreenInfo(usersListPresenter.users[view.pos]))
+            val user = usersListPresenter.users[view.pos]
+            router.navigateTo(AndroidScreenInfo(user))
         }
     }
 
