@@ -8,6 +8,11 @@ import moxy.MvpPresenter
 class UserInfoPresenter(val usersRepo: GitHubUsersRepo, val router: Router) :
     MvpPresenter<UserInfoView>() {
 
+    override fun onFirstViewAttach() {
+        super.onFirstViewAttach()
+        viewState.initUserInfo()
+    }
+
     fun backClick(): Boolean {
         router.exit()
         return true

@@ -22,7 +22,7 @@ class UsersFragment : MvpAppCompatFragment(), UsersView, IBackClickListener {
     }
 
     private val presenter by moxyPresenter {
-        UsersPresenter(GitHubUsersRepo(), App.instance.router, AndroidScreenInfo())
+        UsersPresenter(GitHubUsersRepo(), App.instance.router)
     }
 
     private var ui: FragmentUsersBinding? = null

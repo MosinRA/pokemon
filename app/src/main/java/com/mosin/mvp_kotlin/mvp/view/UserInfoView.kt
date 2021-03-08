@@ -5,5 +5,5 @@ import moxy.viewstate.strategy.alias.AddToEndSingle
 
 @AddToEndSingle
 interface UserInfoView : MvpView {
-    fun initUserInfo(pos: Int)
+    fun initUserInfo()
 }
