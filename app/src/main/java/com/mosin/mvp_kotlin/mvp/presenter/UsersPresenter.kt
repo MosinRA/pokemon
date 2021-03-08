@@ -33,7 +33,7 @@ class UsersPresenter(val usersRepo: GitHubUsersRepo, val router: Router, val scr
 
         usersListPresenter.itemClickListener = { view ->
             val user = usersListPresenter.users[view.pos]
-            router.navigateTo(screens.users(user))
+            router.navigateTo(screens.users())
         }
     }
 

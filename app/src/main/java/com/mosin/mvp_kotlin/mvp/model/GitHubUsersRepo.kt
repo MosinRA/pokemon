@@ -1,8 +1,9 @@
 package com.mosin.mvp_kotlin.mvp.model
 
+import com.github.terrakok.cicerone.Screen
 import com.mosin.mvp_kotlin.mvp.model.entity.GitHubUser
 
-class GitHubUsersRepo {
+class GitHubUsersRepo : Screen {
 
     private val users = listOf<GitHubUser>(
         GitHubUser("login1"),
