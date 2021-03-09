@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mosin.mvp_kotlin.databinding.FragmentUsersBinding
 import com.mosin.mvp_kotlin.mvp.model.GitHubUsersRepo
+import com.mosin.mvp_kotlin.mvp.model.entity.GitHubUser
 import com.mosin.mvp_kotlin.mvp.presenter.UsersPresenter
 import com.mosin.mvp_kotlin.mvp.view.UsersView
 import com.mosin.mvp_kotlin.ui.App

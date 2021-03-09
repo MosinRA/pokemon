@@ -5,7 +5,7 @@ import com.mosin.mvp_kotlin.mvp.model.GitHubUsersRepo
 import com.mosin.mvp_kotlin.mvp.view.UserInfoView
 import moxy.MvpPresenter
 
-class UserInfoPresenter(val usersRepo: GitHubUsersRepo, val router: Router) :
+class UserInfoPresenter(val router: Router) :
     MvpPresenter<UserInfoView>() {
 
     override fun onFirstViewAttach() {

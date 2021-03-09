@@ -26,7 +26,7 @@ class UserInfoFragment : MvpAppCompatFragment(), UserInfoView, IBackClickListene
     private var ui: FragmentUserInfoBinding? = null
 
     private val presenter by moxyPresenter {
-        UserInfoPresenter(GitHubUsersRepo(), App.instance.router)
+        UserInfoPresenter(App.instance.router)
     }
 
     override fun onCreateView(
