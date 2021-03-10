@@ -16,8 +16,4 @@ class GitHubUsersRepo : Screen {
     fun getUsers(): List<GitHubUser> {
         return users
     }
-
-    fun getCurrentUser(pos: Int): GitHubUser {
-        return users[pos]
-    }
 }
