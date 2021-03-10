@@ -6,13 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mosin.mvp_kotlin.databinding.FragmentUsersBinding
 import com.mosin.mvp_kotlin.mvp.model.GitHubUsersRepo
-import com.mosin.mvp_kotlin.mvp.model.entity.GitHubUser
 import com.mosin.mvp_kotlin.mvp.presenter.UsersPresenter
 import com.mosin.mvp_kotlin.mvp.view.UsersView
 import com.mosin.mvp_kotlin.ui.App
 import com.mosin.mvp_kotlin.ui.IBackClickListener
 import com.mosin.mvp_kotlin.ui.adapter.UsersRVAdapter
-import com.mosin.mvp_kotlin.ui.navigation.AndroidScreenInfo
+import com.mosin.mvp_kotlin.ui.navigation.AndroidScreens
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 
@@ -23,7 +22,7 @@ class UsersFragment : MvpAppCompatFragment(), UsersView, IBackClickListener {
     }
 
     private val presenter by moxyPresenter {
-        UsersPresenter(GitHubUsersRepo(), App.instance.router)
+        UsersPresenter(GitHubUsersRepo(), App.instance.router, AndroidScreens())
     }
 
     private var ui: FragmentUsersBinding? = null
@@ -53,5 +52,4 @@ class UsersFragment : MvpAppCompatFragment(), UsersView, IBackClickListener {
     }
 
     override fun backPressed() = presenter.backClick()
-
 }

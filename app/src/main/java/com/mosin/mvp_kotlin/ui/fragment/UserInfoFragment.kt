@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.mosin.mvp_kotlin.databinding.FragmentUserInfoBinding
-import com.mosin.mvp_kotlin.mvp.model.GitHubUsersRepo
 import com.mosin.mvp_kotlin.mvp.model.entity.GitHubUser
 import com.mosin.mvp_kotlin.mvp.presenter.UserInfoPresenter
 import com.mosin.mvp_kotlin.mvp.view.UserInfoView
