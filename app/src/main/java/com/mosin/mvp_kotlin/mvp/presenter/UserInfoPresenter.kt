@@ -27,7 +27,6 @@ class UserInfoPresenter(
         override fun bindView(view: IUserReposItemView) {
             val repos = repos[view.pos]
             view.setNameRepos(repos.name)
-            view.setForksCount(repos.forksCount)
         }
 
         override fun getCount() = repos.size
@@ -42,15 +41,11 @@ class UserInfoPresenter(
         viewState.setLogin(user.login)
         viewState.setImage(user.avatarUrl)
         loadRepos()
-
-        userReposListPresenter.itemClickListener = { view ->
-            val user = userReposListPresenter.repos[view.pos]
-        }
-    }
 //
-//    private fun viewForksCount(score: Int) {
-//        viewState.showForksCount()
-//    }
+//        userReposListPresenter.itemClickListener = { view ->
+//            val user = userReposListPresenter.repos[view.pos]
+//        }
+    }
 
     private fun loadRepos() {
         val disposable = repos.getRepos(user)

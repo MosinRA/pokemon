@@ -10,7 +10,4 @@ interface UserInfoView : MvpView {
     fun updateReposList()
     fun setLogin(text: String)
     fun setImage(url: String)
-
-    @OneExecution
-    fun showForksCount()
 }

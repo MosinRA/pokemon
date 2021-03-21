@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mosin.mvp_kotlin.databinding.FragmentUserInfoBinding
 import com.mosin.mvp_kotlin.mvp.model.api.ApiHolder
@@ -21,7 +20,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 
-class UserInfoFragment(val imageLoader: IImageLoader<ImageView>) : MvpAppCompatFragment(), UserInfoView, IBackClickListener {
+class UserInfoFragment(val imageLoader: IImageLoader<ImageView>) : MvpAppCompatFragment(),
+    UserInfoView, IBackClickListener {
 
     companion object {
         private const val USER_ARG = "user"
@@ -77,9 +77,5 @@ class UserInfoFragment(val imageLoader: IImageLoader<ImageView>) : MvpAppCompatF
 
     override fun setImage(url: String) {
         imageLoader.load(url, ui!!.ivAvatar)
-    }
-
-    override fun showForksCount() {
-        Toast.makeText(context, "forksCount: ", Toast.LENGTH_SHORT).show()
     }
 }
