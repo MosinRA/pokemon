@@ -7,4 +7,4 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class RetrofitGithubRepos(val api: IDataSource) : IGitHubUserRepos {
     override fun getRepos(user: GitHubUser) =
         api.getUsersRepos(user.reposUrl).subscribeOn(Schedulers.io())
-    }
+}

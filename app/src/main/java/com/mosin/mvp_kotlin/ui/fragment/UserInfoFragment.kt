@@ -84,7 +84,7 @@ class UserInfoFragment(val imageLoader: IImageLoader<ImageView>) : MvpAppCompatF
         Toast.makeText(
             context,
             "Количество Форков $scoreFork, \nКоличество просмотров $scoreViews\nЯзык програмирования $language",
-            Toast.LENGTH_LONG
+            Toast.LENGTH_SHORT
         ).show()
     }
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="50dp"
+    android:background="@drawable/background_list_view"
     android:foreground="?attr/selectableItemBackground"
     android:gravity="center_vertical"
     android:orientation="horizontal">
@@ -21,6 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:textSize="15sp"
-        tools:text="@string/login" />
+        tools:text="@string/login"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
 
 </LinearLayout>
