@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mosin.mvp_kotlin.databinding.FragmentUserInfoBinding
 import com.mosin.mvp_kotlin.mvp.model.api.ApiHolder
@@ -77,5 +78,13 @@ class UserInfoFragment(val imageLoader: IImageLoader<ImageView>) : MvpAppCompatF
 
     override fun setImage(url: String) {
         imageLoader.load(url, ui!!.ivAvatar)
+    }
+
+    override fun showRepoInfo(scoreFork: Int, scoreViews: Int, language: String) {
+        Toast.makeText(
+            context,
+            "Количество Форков $scoreFork, \nКоличество просмотров $scoreViews\nЯзык програмирования $language",
+            Toast.LENGTH_LONG
+        ).show()
     }
 }

@@ -41,10 +41,19 @@ class UserInfoPresenter(
         viewState.setLogin(user.login)
         viewState.setImage(user.avatarUrl)
         loadRepos()
-//
-//        userReposListPresenter.itemClickListener = { view ->
-//            val user = userReposListPresenter.repos[view.pos]
-//        }
+
+        userReposListPresenter.itemClickListener = { view ->
+            val forksCount = userReposListPresenter.repos[view.pos]
+            val viewsCount = userReposListPresenter.repos[view.pos]
+            val language = userReposListPresenter.repos[view.pos]
+            viewForksCount(forksCount.forksCount, viewsCount.watchersCount, language.language)
+        }
+    }
+
+    private fun viewForksCount(scoreFork: Int, scoreViews: Int, language: String?) {
+        if (language != null) {
+            viewState.showRepoInfo(scoreFork, scoreViews, language)
+        } else viewState.showRepoInfo(scoreFork, scoreViews, "Не указан")
     }
 
     private fun loadRepos() {
