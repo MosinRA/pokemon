@@ -15,36 +15,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
-class GlideImageLoader (val imageCache: IImageCache, val networkStatus: INetworkStatus) : IImageLoader<ImageView> {
-    //    override fun load(url: String, container: ImageView) {
-//        Glide.with(container.context)
-//            .asBitmap()
-//            .load(url)
-//            .listener(object : RequestListener<Bitmap> {
-//                override fun onLoadFailed(
-//                    e: GlideException?,
-//                    model: Any?,
-//                    target: Target<Bitmap>?,
-//                    isFirstResource: Boolean
-//                ): Boolean {
-//                    //Обработка провала загрузки
-//                    return false
-//                }
-//
-//                override fun onResourceReady(
-//                    bitmap: Bitmap?,
-//                    model: Any?,
-//                    target: Target<Bitmap>?,
-//                    dataSource: DataSource?,
-//                    isFirstResource: Boolean
-//                ): Boolean {
-//                    //Делаем что-то с bitmap
-//                    return false
-//                }
-//            })
-//            .into(container)
-//    }
-//}
+class GlideImageLoader(val imageCache: IImageCache, val networkStatus: INetworkStatus) :
+    IImageLoader<ImageView> {
+
     override fun load(url: String, container: ImageView) {
         networkStatus.isOnlineSingle().subscribe { isOnline ->
             if (isOnline) {
