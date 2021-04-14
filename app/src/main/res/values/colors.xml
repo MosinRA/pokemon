@@ -11,5 +11,7 @@
     <color name="ground">#3c3c46</color>
     <color name="ground_center">#41424c</color>
     <color name="ground_gray">#2F2F2F</color>
+    <color name="ground_progress">#2299FF</color>
+
 
 </resources>

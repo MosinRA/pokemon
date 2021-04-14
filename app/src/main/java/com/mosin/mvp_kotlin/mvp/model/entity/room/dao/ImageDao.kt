@@ -2,7 +2,6 @@ package com.mosin.mvp_kotlin.mvp.model.entity.room.dao
 
 import androidx.room.*
 import com.mosin.mvp_kotlin.mvp.model.entity.room.RoomCachedImage
-import com.mosin.mvp_kotlin.mvp.model.entity.room.RoomGitHubRepo
 
 @Dao
 interface ImageDao {
@@ -17,7 +16,7 @@ interface ImageDao {
     fun insert(roomCachedImages: List<RoomCachedImage>)
 
     @Update
-    fun update(repository: RoomGitHubRepo)
+    fun update(repository: RoomCachedImage)
 
     @Update
     fun update(vararg roomCachedImages: RoomCachedImage)

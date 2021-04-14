@@ -1,6 +1,5 @@
 package com.mosin.mvp_kotlin.di.modules
 
-import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.mosin.mvp_kotlin.mvp.model.api.IDataSource
@@ -20,7 +19,7 @@ class ApiModule {
 
     @Named("baseUrl")
     @Provides
-    fun baseUrl() = "https://api.github.com"
+    fun baseUrl() = "https://app.pokemon-api.xyz/pokemon/"
 
     @Provides
     @Singleton
@@ -34,7 +33,6 @@ class ApiModule {
     @Provides
     @Singleton
     fun gson(): Gson = GsonBuilder()
-        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
         .excludeFieldsWithoutExposeAnnotation()
         .create()
 

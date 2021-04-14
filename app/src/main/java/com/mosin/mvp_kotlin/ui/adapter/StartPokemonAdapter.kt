@@ -6,12 +6,12 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.mosin.mvp_kotlin.databinding.ItemUserBinding
 import com.mosin.mvp_kotlin.mvp.model.image.IImageLoader
-import com.mosin.mvp_kotlin.mvp.presenter.list.IUserListPresenter
+import com.mosin.mvp_kotlin.mvp.presenter.list.IAllPokemonListPresenter
 import com.mosin.mvp_kotlin.mvp.view.list.IUserItemView
 import javax.inject.Inject
 
-class UsersRVAdapter(val presenter: IUserListPresenter) :
-    RecyclerView.Adapter<UsersRVAdapter.ViewHolder>() {
+class StartPokemonAdapter(val presenter: IAllPokemonListPresenter) :
+    RecyclerView.Adapter<StartPokemonAdapter.ViewHolder>() {
 
     @Inject
     lateinit var imageLoader: IImageLoader<ImageView>

@@ -1,11 +1,11 @@
 package com.mosin.mvp_kotlin.mvp.presenter
 
 import com.github.terrakok.cicerone.Router
-import com.mosin.mvp_kotlin.mvp.model.entity.GitHubUser
-import com.mosin.mvp_kotlin.mvp.model.repo.IGitHubUsersRepo
+import com.mosin.mvp_kotlin.mvp.model.entity.api.AllPokemon
+import com.mosin.mvp_kotlin.mvp.model.repo.IAllPokemonRepo
 import com.mosin.mvp_kotlin.mvp.navigation.IScreens
-import com.mosin.mvp_kotlin.mvp.presenter.list.IUserListPresenter
-import com.mosin.mvp_kotlin.mvp.view.UsersView
+import com.mosin.mvp_kotlin.mvp.presenter.list.IAllPokemonListPresenter
+import com.mosin.mvp_kotlin.mvp.view.StartAllPokemonView
 import com.mosin.mvp_kotlin.mvp.view.list.IUserItemView
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -13,7 +13,7 @@ import moxy.MvpPresenter
 import javax.inject.Inject
 import javax.inject.Named
 
-class UsersPresenter() : MvpPresenter<UsersView>() {
+class AllPokemonPresenter() : MvpPresenter<StartAllPokemonView>() {
 
     @Inject
     lateinit var screens: IScreens
@@ -22,25 +22,25 @@ class UsersPresenter() : MvpPresenter<UsersView>() {
     lateinit var router: Router
 
     @Inject
-    lateinit var usersRepo: IGitHubUsersRepo
+    lateinit var pokemonRepo: IAllPokemonRepo
 
     @field:Named("ui")
     @Inject
     lateinit var uiScheduler: Scheduler
 
 
-    class UsersListPresenter : IUserListPresenter {
+    class UsersListPresenter : IAllPokemonListPresenter {
 
-        val users = mutableListOf<GitHubUser>()
+        val pokemonList = mutableListOf<AllPokemon>()
         override var itemClickListener: ((IUserItemView) -> Unit)? = null
 
         override fun bindView(view: IUserItemView) {
-            val user = users[view.pos]
-            view.setLogin(user.login)
-            user.avatarUrl?.let { view.loadAvatar(it) }
+            val pokemon = pokemonList[view.pos]
+            view.setLogin(pokemon.name.english)
+            pokemon.hires.let { view.loadAvatar(it) }
         }
 
-        override fun getCount() = users.size
+        override fun getCount() = pokemonList.size
     }
 
     val usersListPresenter = UsersListPresenter()
@@ -52,16 +52,16 @@ class UsersPresenter() : MvpPresenter<UsersView>() {
         loadData()
 
         usersListPresenter.itemClickListener = { view ->
-            val user = usersListPresenter.users[view.pos]
-            router.navigateTo(screens.user(user))
+            val pokemon = usersListPresenter.pokemonList[view.pos]
+            router.navigateTo(screens.pokemon(pokemon))
         }
     }
 
     fun loadData() {
-        val disposable = usersRepo.getUsers()
+        val disposable = pokemonRepo.getPokemon()
             .observeOn(uiScheduler)
-            .subscribe({ usersList ->
-                usersListPresenter.users.addAll(usersList)
+            .subscribe({ pokeminList ->
+                usersListPresenter.pokemonList.addAll(pokeminList)
                 viewState.updateList()
             }, { error ->
                 println("Error: ${error.message}")

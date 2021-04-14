@@ -1,12 +1,14 @@
 package com.mosin.mvp_kotlin.ui.navigation
 
 import com.github.terrakok.cicerone.androidx.FragmentScreen
-import com.mosin.mvp_kotlin.mvp.model.entity.GitHubUser
+import com.mosin.mvp_kotlin.mvp.model.entity.api.AllPokemon
 import com.mosin.mvp_kotlin.mvp.navigation.IScreens
-import com.mosin.mvp_kotlin.ui.fragment.UserInfoFragment
-import com.mosin.mvp_kotlin.ui.fragment.UsersFragment
+import com.mosin.mvp_kotlin.ui.fragment.InfoForPokemonFragment
+import com.mosin.mvp_kotlin.ui.fragment.AllPokemonFragment
 
 class AndroidScreens : IScreens {
-    override fun users() = FragmentScreen { UsersFragment.newInstance() }
-    override fun user(user: GitHubUser) = FragmentScreen { UserInfoFragment.newInstance(user) }
+    override fun allPokemon() = FragmentScreen { AllPokemonFragment.newInstance() }
+
+    override fun pokemon(pokemon: AllPokemon) =
+        FragmentScreen { InfoForPokemonFragment.newInstance(pokemon) }
 }

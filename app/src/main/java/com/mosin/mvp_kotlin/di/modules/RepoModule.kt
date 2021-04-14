@@ -15,15 +15,6 @@ class RepoModule {
     fun usersRepo(
         api: IDataSource,
         networkStatus: INetworkStatus,
-        cache: ICacheUsers
-    ): IGitHubUsersRepo = RetrofitGitHubUsersRepo(api, networkStatus, cache)
-
-    @Singleton
-    @Provides
-    fun reposRepo(
-        api: IDataSource,
-        networkStatus: INetworkStatus,
-        cache: ICacheRepo
-    ): IGitHubUserRepos = RetrofitGithubRepos(api, networkStatus, cache)
-
+        cache: ICacheAllPokemon
+    ): IAllPokemonRepo = RetrofitAllPokemonRepo(api, networkStatus, cache)
 }

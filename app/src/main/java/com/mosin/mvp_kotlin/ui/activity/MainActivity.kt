@@ -9,15 +9,15 @@ import com.mosin.mvp_kotlin.mvp.presenter.MainPresenter
 import com.mosin.mvp_kotlin.mvp.view.MainView
 import com.mosin.mvp_kotlin.ui.App
 import com.mosin.mvp_kotlin.ui.IBackClickListener
-import com.mosin.mvp_kotlin.ui.adapter.UsersRVAdapter
-import com.mosin.mvp_kotlin.ui.navigation.AndroidScreens
+import com.mosin.mvp_kotlin.ui.adapter.StartPokemonAdapter
 import moxy.MvpAppCompatActivity
 import moxy.ktx.moxyPresenter
 import javax.inject.Inject
 
 class MainActivity : MvpAppCompatActivity(), MainView {
 
-    @Inject lateinit var navigatorHolder: NavigatorHolder
+    @Inject
+    lateinit var navigatorHolder: NavigatorHolder
 
     val navigator = AppNavigator(this, R.id.container)
     private var ui: ActivityMainBinding? = null
@@ -27,7 +27,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         }
     }
 
-    private var adapter: UsersRVAdapter? = null
+    private var adapter: StartPokemonAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

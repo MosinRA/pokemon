@@ -18,11 +18,7 @@ class CacheModule {
 
     @Provides
     @Singleton
-    fun usersCache(db: Database): ICacheUsers = CacheUsers(db)
-
-    @Singleton
-    @Provides
-    fun reposCache(database: Database): ICacheRepo = CacheRepo(database)
+    fun usersCache(db: Database): ICacheAllPokemon = CacheAllPokemon(db)
 
     @Singleton
     @Provides
